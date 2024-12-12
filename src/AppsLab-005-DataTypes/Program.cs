@@ -1,4 +1,5 @@
-﻿int age = 16;
+﻿//'Vytvaranie premannych a ich testovanie
+int age = 16;
 string name = "Michal";
 char inicialky = 'M';
 bool isAdult = false;
