@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Security.Cryptography.X509Certificates;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -9,21 +10,22 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApp1
+namespace Tic_tac_toe
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        public char LastPlayer { get; set; } = '◯';
-        public char PlayerOne { get; set; } = '✕';
-        public char PlayerTwo { get; set; } = '◯';
+        public char LastPlayer { get; set; } = '⨉';
+
+        public char PlayerOne { get; set; } = '⭕';
+
+        public char PlayerTwo { get; set; } = '⨉';
         public MainWindow()
         {
             InitializeComponent();
         }
-
         public void ProcessClick(Button button)
         {
             var buttonContent = button.Content.ToString();
@@ -35,80 +37,100 @@ namespace WpfApp1
             if (LastPlayer == PlayerOne)
             {
                 button.Content = PlayerTwo;
+                button.Background = new SolidColorBrush(Colors.Green);
                 LastPlayer = PlayerTwo;
+
             }
+
             else if (LastPlayer == PlayerTwo)
             {
                 button.Content = PlayerOne;
+                button.Background = new SolidColorBrush(Colors.Blue);
                 LastPlayer = PlayerOne;
-            }
 
+
+            }
             var isWinner = CheckWinner();
             if (isWinner)
             {
-                MessageBox.Show("Vyhral hráč: " + LastPlayer);
-            }
 
+                var result = MessageBox.Show(messageBoxText:"Vyhral hrac:" + LastPlayer, caption: "Chceš novú hru?", MessageBoxButton.YesNo,MessageBoxImage.Question);
+
+                if(result==MessageBoxResult.Yes)
+                {
+                    Button0.Content = "";
+                    Button1.Content = "";
+                    Button2.Content = "";
+                    Button3.Content = "";
+                    Button4.Content = "";
+                    Button5.Content = "";
+                    Button6.Content = "";
+                    Button7.Content = "";
+                    Button8.Content = "";
+                    Button0.Background = new SolidColorBrush(Colors.White);
+                    Button1.Background = new SolidColorBrush(Colors.White);
+                    Button2.Background = new SolidColorBrush(Colors.White);
+                    Button3.Background = new SolidColorBrush(Colors.White);
+                    Button4.Background = new SolidColorBrush(Colors.White);
+                    Button5.Background = new SolidColorBrush(Colors.White);
+                    Button6.Background = new SolidColorBrush(Colors.White);
+                    Button7.Background = new SolidColorBrush(Colors.White);
+                    Button8.Background = new SolidColorBrush(Colors.White);
+                }
+
+                this.Close();
+
+            }
         }
 
 
-        private void Button_0x0_Click(object sender, RoutedEventArgs e)
+        private void Button0_Click(object sender, RoutedEventArgs e)
         {
             ProcessClick(sender as Button);
-
         }
 
-        public void CheckWinner()
+        public bool CheckWinner()
         {
-            var button_0x0 = Button_0x0.Content.ToString();
-            var button_0x1 = Button_0x0.Content.ToString();
-            var button_0x2 = Button_0x0.Content.ToString();
-            var button_1x2 = Button_0x0.Content.ToString();
-            var button_1x1 = Button_0x0.Content.ToString();
-            var button_1x0 = Button_0x0.Content.ToString();
-            var button_2x2 = Button_0x0.Content.ToString();
-            var button_2x1 = Button_0x0.Content.ToString();
-            var button_2x0 = Button_0x0.Content.ToString();
+            var button0 = Button0.Content.ToString();
+            var button1 = Button1.Content.ToString();
+            var button2 = Button2.Content.ToString();
+            var button3 = Button3.Content.ToString();
+            var button4 = Button4.Content.ToString();
+            var button5 = Button5.Content.ToString();
+            var button6 = Button6.Content.ToString();
+            var button7 = Button7.Content.ToString();
+            var button8 = Button8.Content.ToString();
 
-            //kontrola prveho riadku
-            if (button_0x0 == button_0x1 && button_0x0 == button_0x2)
+            // Kontrola rpveho riadku
+            if (button0 == button1 && button1 == button2 && button2 != "")
             {
                 return true;
             }
-
-            //kontrola druheho riadku
-            if (button_1x0 == button_1x1 && button_1x0 == button_1x2)
+            if (button3 == button4 && button4 == button5 && button3 != "")
             {
                 return true;
             }
-
-            //kontrola tretieho riadku
-            if (button_2x0 == button_2x1 && button_2x0 == button_2x2)
+            if (button6 == button7 && button7 == button8 && button6 != "")
             {
                 return true;
             }
-
-
-            //kontrola prveho stlpca riadku
-            if (button_0x0 == button_0x1 && button_0x0 == button_0x2)
+            if (button0 == button3 && button3 == button6 && button3 != "")
             {
                 return true;
             }
-
-            //kontrola druheho stlpca
-            if (button_0x1 == button_1x1 && button_0x1 == button_2x1)
+            if (button1 == button4 && button4 == button7 && button4 != "")
             {
                 return true;
             }
-
-            //kontrola tretieho stlpca 
-            if (button_0x2 == button_1x2 && button_0x2 == button_2x2)
+            if (button0 == button4 && button4 == button8 && button4 != "")
             {
                 return true;
             }
-
+            if (button2 == button4 && button4 == button6 && button4 != "")
+            {
+                return true;
+            }
             return false;
-
         }
     }
 }
