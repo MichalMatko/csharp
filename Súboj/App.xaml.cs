@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace Súboj
+namespace PokemonGame
 {
     /// <summary>
     /// Interaction logic for App.xaml
