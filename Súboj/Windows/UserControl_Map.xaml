@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="PokemonGame.Windows.UserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PokemonGame.Windows"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="400">
+    <Grid Name ="Grid_Map" Background="#FF75E3E3" >
+        <Button Name ="Button_Bulbsaur" Content="Bulbsaur" HorizontalAlignment="Left" Margin="69,135,0,0" VerticalAlignment="Top" Height="65" Width="100" Background="#FF50C814" FontSize="20" Click="Button_Click"/>
+        <Button Name ="Button_Squirtle" Content="Squirtle" HorizontalAlignment="Left" Margin="70,38,0,0" VerticalAlignment="Top" Height="66" Width="99" Background="#FF50C814" FontSize="20" Click="Button_Click"/>
+        <Button Name ="Button_Butter" Content="Butterfree" HorizontalAlignment="Left" Margin="70,236,0,0" VerticalAlignment="Top" Height="66" Width="99" Background="#FF50C814" FontSize="20" Click="Button_Click"/>
+
+    </Grid>
+</UserControl>
