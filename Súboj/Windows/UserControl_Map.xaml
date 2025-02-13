@@ -6,10 +6,5 @@
              xmlns:local="clr-namespace:PokemonGame.Windows"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="400">
-    <Grid Name ="Grid_Map" Background="#FF75E3E3" >
-        <Button Name ="Button_Bulbsaur" Content="Bulbsaur" HorizontalAlignment="Left" Margin="69,135,0,0" VerticalAlignment="Top" Height="65" Width="100" Background="#FF50C814" FontSize="20" Click="Button_Click"/>
-        <Button Name ="Button_Squirtle" Content="Squirtle" HorizontalAlignment="Left" Margin="70,38,0,0" VerticalAlignment="Top" Height="66" Width="99" Background="#FF50C814" FontSize="20" Click="Button_Click"/>
-        <Button Name ="Button_Butter" Content="Butterfree" HorizontalAlignment="Left" Margin="70,236,0,0" VerticalAlignment="Top" Height="66" Width="99" Background="#FF50C814" FontSize="20" Click="Button_Click"/>
-
-    </Grid>
+    <Grid Name ="Grid_Map" Background="#FF75E3E3" />
 </UserControl>

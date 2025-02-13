@@ -6,8 +6,8 @@
         public Pokemon SecondPokemon { get; set; }
         public GameEngine()
         {
-            FirstPokemon = new Pokemon("Pikachu");
-            SecondPokemon = new Pokemon("Charizard");
+            FirstPokemon = new Pokemon("Pikachu",200,1);
+            SecondPokemon = new Pokemon("Charizard",100,1);
         }
     }
 }

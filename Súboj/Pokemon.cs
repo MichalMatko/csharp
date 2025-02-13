@@ -3,30 +3,34 @@
     public class Pokemon
     {
         public string Name { get; set; }
+        public int MaxHealth { get; set; }
         public int Health { get; set; }
+        public int Level { get; set; }
 
-        public Pokemon(string name)
+        public Pokemon(string name, int maxHealth, int level)
         {
             this.Name = name;
-            this.Health = 100;
+            this.MaxHealth = maxHealth;
+            this.Level = level;
+            this.Health = maxHealth;
         }
 
         public int Attack1()
         {
             Random rnd = new Random();
-            return rnd.Next(10, 91);
+            return rnd.Next(10, 91)*Level;
         }
 
         public int Attack2()
         {
             Random rnd = new Random();
-            return rnd.Next(30, 71);
+            return rnd.Next(30, 71)*Level;
         }
 
         public int Attack3()
         {
             Random rnd = new Random();
-            return rnd.Next(40, 60);
+            return rnd.Next(40, 60) * Level;
         }
 
         public bool TakeDamage(int damage)
@@ -43,16 +47,16 @@
         public void TakeHeal(int heal)
         {
             Health += heal;
-            if (Health >= 100)
+            if (Health >= MaxHealth)
             {
-                Health = 100;
+                Health = MaxHealth;
             }
         }
 
         public int Heal()
         {
             Random rnd = new Random();
-            return rnd.Next(20, 71);
+            return rnd.Next(20, 71) * Level;
            
         }
     }
